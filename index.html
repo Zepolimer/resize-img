@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Redimensionner une image</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+
+    <body>
+        <h1>Redimensionner la taille de vos images</h1>
+
+        <div id="container">
+            <div id="dropZone">
+                <span>Déposez votre image ici ou cliquez pour sélectionner</span>
+
+                <img id="imagePreview" alt="Aperçu de l'image">
+            </div>
+            <input type="file" id="fileInput" accept="image/*" class="hidden">
+
+            <div id="configuration">
+                <div id="options">
+                    <fieldset>
+                        <label for="widthInput">Largeur (cm):</label>
+                        <input type="number" id="widthInput" min="1">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="heightInput">Hauteur (cm):</label>
+                        <input type="number" id="heightInput" min="1">
+                    </fieldset>
+                </div>
+
+                <button id="downloadResizedImg" class="button" disabled>Télécharger</button>
+            </div>
+        </div>
+
+        <script src="./assets/js/index.js"></script>
+    </body>
+</html>
