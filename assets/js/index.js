@@ -39,7 +39,6 @@ function loadImage(file) {
             aspectRatio = originalImage.width / originalImage.height;
             updateInputs(originalImage.width, originalImage.height);
             imagePreview.src = e.target.result;
-            downloadButton.disabled = false;
             downloadResizedImg.disabled = false;
         };
         originalImage.src = e.target.result;
@@ -81,7 +80,6 @@ function downloadImage(imageUrl) {
     link.href = imageUrl;
     link.download = 'resized_image.png';
     link.click();
-    modal.style.display = "none";
 }
 
 function downloadResized() {
