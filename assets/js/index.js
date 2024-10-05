@@ -7,6 +7,7 @@ const heightInput = document.getElementById('heightInput');
 const downloadResizedImg = document.getElementById('downloadResizedImg');
 
 let originalImage = null;
+let fileName = 'resized_image.png';
 let aspectRatio = 1;
 
 dropZone.addEventListener('click', () => fileInput.click());
@@ -27,12 +28,15 @@ function handleDrop(e) {
 function handleFileSelect(e) {
     const file = e.target.files[0];
     if (file) {
+        console.log(file)
         loadImage(file);
     }
 }
 
 function loadImage(file) {
-    const reader = new FileReader();
+    const reader = new FileReader()
+    fileName = file.name
+
     reader.onload = (e) => {
         originalImage = new Image();
         originalImage.onload = () => {
@@ -40,10 +44,11 @@ function loadImage(file) {
             updateInputs(originalImage.width, originalImage.height);
             imagePreview.src = e.target.result;
             downloadResizedImg.disabled = false;
-        };
-        originalImage.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
+        }
+        originalImage.src = e.target.result
+    }
+
+    reader.readAsDataURL(file)
 }
 
 function updateInputs(width, height) {
@@ -78,7 +83,7 @@ function resizeImage() {
 function downloadImage(imageUrl) {
     const link = document.createElement('a');
     link.href = imageUrl;
-    link.download = 'resized_image.png';
+    link.download = fileName;
     link.click();
 }
 
