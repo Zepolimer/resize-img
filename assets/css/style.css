@@ -83,8 +83,10 @@ h1 {
 #options {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
     margin-bottom: 30px;
 }
 fieldset {
@@ -93,10 +95,20 @@ fieldset {
     margin: 0;
     padding: 0;
 }
+fieldset input {
+    padding: 5px;
+    border-radius: 8px;
+    outline: transparent;
+    border: 1px solid #cccccc;
+    transition: all .6s ease-in-out;
+}
+fieldset input:focus {
+    border: 1px solid #000000;
+}
 
-/*@media screen and (min-width: 768px) {*/
-/*    #container {*/
-/*        flex-direction: row;*/
-/*        align-items: start;*/
-/*    }*/
-/*}*/
+@media screen and (min-width: 600px) {
+    #options {
+        flex-direction: row;
+        align-items: start;
+    }
+}
